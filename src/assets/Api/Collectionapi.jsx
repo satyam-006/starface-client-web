@@ -6,7 +6,7 @@ name:"Modelling Agency",
 image: "img1.jpeg",
 alt:"valueofalt",
 link:"./MainHome/Modelling_Agency",
-discription:"value discription",
+discription:"discription",
 },
 {
     id:2,
