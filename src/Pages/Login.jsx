@@ -66,57 +66,60 @@ const handleloginSubmit = async (e) =>{
    
      
   return (
-    <>
-    <section>
-      <main>
-        <div className="section-registration">
-          <div className="container">
-              <div className=''>
-                <img src="/images/register.png" alt="a girl trying to do registration" />
+    <section className="bg-gray-50 min-h-screen flex items-center justify-center">
+      <main className="w-full max-w-4xl p-6">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="hidden md:block">
+                <img src="/images/register.png" alt="a girl trying to do registration" className="w-full h-auto" />
               </div>
 
-              {/* ragistration form */}
-              <div className="border-2 border-blue-400">
-                <h1 className="text-3xl font-bold underline">Login Form</h1>
-                <br />
-                <form onSubmit={handleloginSubmit} className="border-2 border-blue-400">
-                 <div>
-                  <label htmlFor="email">email</label>
-                  <input 
-                   type="email"
-                   name='email'
-                   placeholder='email'
-                   id='email'
-                   required
-                   autoComplete='false'
-                   value={userlogin.email}
-                   onChange={handleInput}
-                  />
-                  
-                  <label htmlFor="password">Password</label>
-                  <input 
-                   type="password"
-                   name='password'
-                   placeholder='password'
-                   id='password'
-                   required
-                   autoComplete='false'
-                   min="8"
-                   max="10"
-                   value={userlogin.password}
-                   onChange={handleInput}
-                  />
+              <div className="w-full max-w-md mx-auto">
+                <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">Login</h1>
+                <form onSubmit={handleloginSubmit} className="space-y-6">
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <input 
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        id="email"
+                        required
+                        autoComplete="email"
+                        value={userlogin.email}
+                        onChange={handleInput}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                      <input 
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        id="password"
+                        required
+                        autoComplete="current-password"
+                        value={userlogin.password}
+                        onChange={handleInput}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                      />
+                    </div>
                   </div>
-                  <br />
-                  <button type='submit' className='dekhta hun'>Login</button>
+                  <button 
+                    type="submit" 
+                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+                  >
+                    Login
+                  </button>
                 </form>
-
               </div>
           </div>
         </div>
       </main>
     </section>
-    </>
   )
 }
 
