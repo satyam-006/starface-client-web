@@ -9,6 +9,12 @@ import starlogo from '../Collection_img/starfacelogo.png';
 function Navbar() {
   const { isLoggedIn } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  // Toggle dropdown function
+  const toggleDropdown = (dropdownName) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -177,67 +183,97 @@ function Navbar() {
               <div className="py-4">
                 {/* Mobile Home Link with dropdown */}
                 <div className="space-y-1">
-                  <div className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between">
+                  <div 
+                    className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between cursor-pointer"
+                    onClick={() => toggleDropdown('home')}
+                  >
                     Home
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg 
+                      className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'home' ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </div>
-                  {Collection.map((item, index) => (
-                    <NavLink
-                      key={index}
-                      to={item.link}
-                      className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </NavLink>
-                  ))}
+                  <div className={`${activeDropdown === 'home' ? 'block' : 'hidden'}`}>
+                    {Collection.map((item, index) => (
+                      <NavLink
+                        key={index}
+                        to={item.link}
+                        className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Mobile Pages Link with dropdown */}
                 <div className="space-y-1 mt-4">
-                  <div className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between">
+                  <div 
+                    className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between cursor-pointer"
+                    onClick={() => toggleDropdown('pages')}
+                  >
                     Pages
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg 
+                      className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'pages' ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </div>
-                  {Pagesapi.map((item, index) => (
-                    <NavLink
-                      key={index}
-                      to={item.path}
-                      className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </NavLink>
-                  ))}
+                  <div className={`${activeDropdown === 'pages' ? 'block' : 'hidden'}`}>
+                    {Pagesapi.map((item, index) => (
+                      <NavLink
+                        key={index}
+                        to={item.path}
+                        className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Mobile Elements Link with dropdown */}
                 <div className="space-y-1 mt-4">
-                  <div className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between">
+                  <div 
+                    className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between cursor-pointer"
+                    onClick={() => toggleDropdown('elements')}
+                  >
                     Elements
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg 
+                      className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'elements' ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </div>
-                  {Elementapi.map((category) => (
-                    <div key={category.category} className="ml-4 space-y-1">
-                      <div className="px-3 py-2 text-sm font-medium text-gray-900">{category.category}</div>
-                      {category.data.map((item) => (
-                        <NavLink
-                          key={item.id}
-                          to={item.path}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.name}
-                        </NavLink>
-                      ))}
-                    </div>
-                  ))}
+                  <div className={`${activeDropdown === 'elements' ? 'block' : 'hidden'}`}>
+                    {Elementapi.map((category) => (
+                      <div key={category.category} className="ml-4 space-y-1">
+                        <div className="px-3 py-2 text-sm font-medium text-gray-900">{category.category}</div>
+                        {category.data.map((item) => (
+                          <NavLink
+                            key={item.id}
+                            to={item.path}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {item.name}
+                          </NavLink>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Mobile Vision and Portfolio Links */}
