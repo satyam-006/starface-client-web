@@ -104,7 +104,7 @@ function Navbar() {
                       </svg>
                     </NavLink>
                   </li>
-                  <div className='absolute right-0 hidden group-hover:block bg-white shadow-lg z-50 rounded-md w-[500px] max-h-[600px] overflow-y-auto mt-1'>
+                  <div className='absolute left-0 hidden group-hover:block bg-white shadow-lg z-50 rounded-md w-[500px] max-h-[600px] overflow-y-auto mt-1'>
                     <div className='grid grid-cols-2 p-4 gap-4'>
                       {Elementapi.map((category) => (
                         <div key={category.category}>
