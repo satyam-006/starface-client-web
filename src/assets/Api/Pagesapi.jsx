@@ -11,7 +11,7 @@ const Pagesapi = [
     },
     {
         id:1,
-        name:"Collab",
+        name:"Brand Collab",
         path:"/Page/Collab",
     },
     {
@@ -41,12 +41,12 @@ const Pagesapi = [
     },
     {
         id:1,
-        name:"Shop",
+        name:"Online Shops",
         path:"/Page/ShopPages",
     },
     {
         id:1,
-        name:"Showcase",
+        name:"Ads Showcase",
         path:"/Page/Showcase",
     },
     {
@@ -56,7 +56,7 @@ const Pagesapi = [
     },
     {
         id:1,
-        name:"Team",
+        name:"Team Members",
         path:"/Page/Team",
     },
 ]
