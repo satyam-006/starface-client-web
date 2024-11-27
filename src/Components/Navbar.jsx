@@ -30,7 +30,7 @@ function Navbar() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <NavLink to="/" className="text-xl sm:text-2xl font-bold text-gray-800 hover:text-rose-600 transition-colors">
-                <img src={starlogo} alt="" srcset="" />
+                <img src={starlogo} alt="" srcset="" height={50} width={50}/>
               </NavLink>
             </div>
 
