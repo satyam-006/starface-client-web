@@ -4,6 +4,7 @@ import Collection from "../assets/Api/Collectionapi";
 import Pagesapi from '../assets/Api/Pagesapi';
 import Elementapi from '../assets/Api/Elementsapi';
 import { useAuth } from '../Store/auth';
+import starlogo from '../Collection_img/starfacelogo.png';
 
 function Navbar() {
   const { isLoggedIn } = useAuth();
@@ -29,7 +30,7 @@ function Navbar() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <NavLink to="/" className="text-xl sm:text-2xl font-bold text-gray-800 hover:text-rose-600 transition-colors">
-                Sri
+                <img src={starlogo} alt="" srcset="" />
               </NavLink>
             </div>
 
@@ -89,12 +90,12 @@ function Navbar() {
                           </li>
                         );
                       })}
-                      <li className='px-4 py-2 hover:bg-slate-200'>
+                      {/* <li className='px-4 py-2 hover:bg-slate-200'>
                         <NavLink to="/Layout-collection">Landing...</NavLink>
                       </li>
                       <li className='px-4 py-2 hover:bg-slate-200'>
                         <NavLink to="/Layout-collection">Landing...</NavLink>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </div>
