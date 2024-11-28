@@ -30,20 +30,20 @@ function Navbar() {
 
   return (
     <>
-      <header className="bg-white shadow-sm fixed w-full top-0 z-50 h-16 sm:h-20">
+      <header className="bg-gray-900 shadow-lg fixed w-full top-0 z-50 h-16 sm:h-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <NavLink to="/" className="text-xl sm:text-2xl font-bold text-gray-800 hover:text-rose-600 transition-colors">
-                <img src={starlogo} alt="" srcset="" height={50} width={50}/>
+              <NavLink to="/" className="text-xl sm:text-2xl font-bold text-white hover:text-rose-500 transition-colors">
+                <img src={starlogo} alt="Logo" className="h-12 w-auto" />
               </NavLink>
             </div>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none"
+              className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -55,19 +55,19 @@ function Navbar() {
               <ul className="flex items-center space-x-1">
                 {/* Home Dropdown */}
                 <div className="relative group">
-                  <li className="hover:bg-gray-50 rounded-md">
-                    <NavLink to="/" className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-gray-900"> 
+                  <li className="hover:bg-gray-800 rounded-md">
+                    <NavLink to="/" className="flex items-center gap-1 px-3 py-2 text-gray-300 hover:text-white"> 
                       Home 
                       <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </NavLink>
                   </li>
-                  <div className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md min-w-[200px] max-h-[400px] overflow-y-auto">
+                  <div className="absolute left-0 hidden group-hover:block bg-gray-800 shadow-lg rounded-md min-w-[200px] max-h-[400px] overflow-y-auto">
                     <ul className="py-2">
                       {Collection.map((curElem, index) => (
-                        <li key={index} className="hover:bg-gray-50">
-                          <NavLink to={curElem.link} className="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">
+                        <li key={index} className="hover:bg-gray-700">
+                          <NavLink to={curElem.link} className="block px-4 py-2 text-sm text-gray-300 hover:text-white">
                             {curElem.name}
                           </NavLink>
                         </li>
@@ -76,49 +76,46 @@ function Navbar() {
                   </div>
                 </div>
 
-                {/* Page Dropdown */}
+                {/* Pages Dropdown */}
                 <div className='relative group mx-2'>
-                  <li className='hover:bg-slate-100 px-3 py-2 rounded-md'>
-                    <NavLink to="/" className="flex items-center gap-1"> 
+                  <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                    <NavLink to="/" className="flex items-center gap-1 text-gray-300 hover:text-white"> 
                       Pages
                       <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </NavLink>
                   </li>
-                  <div className='absolute left-0 hidden group-hover:block bg-white shadow-lg z-50 rounded-md min-w-[200px] max-h-[400px] overflow-y-auto mt-1'>
+                  <div className='absolute left-0 hidden group-hover:block bg-gray-800 shadow-lg z-50 rounded-md min-w-[200px] max-h-[400px] overflow-y-auto mt-1'>
                     <ul className='py-2'>
-                      {Pagesapi.map((curElem, index) => {
-                        const { id, name, path } = curElem;
-                        return (
-                          <li key={index} className='px-4 py-2 hover:bg-slate-100 transition-colors duration-200'>
-                            <NavLink to={path} className='relative block w-full'>{name}</NavLink>
-                          </li>
-                        );
-                      })}
+                      {Pagesapi.map((curElem, index) => (
+                        <li key={index} className='px-4 py-2 hover:bg-gray-700'>
+                          <NavLink to={curElem.path} className='block text-gray-300 hover:text-white'>{curElem.name}</NavLink>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
 
                 {/* Elements Dropdown */}
                 <div className='relative group mx-2'>
-                  <li className='hover:bg-slate-100 px-3 py-2 rounded-md'>
-                    <NavLink to="/" className="flex items-center gap-1"> 
+                  <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                    <NavLink to="/" className="flex items-center gap-1 text-gray-300 hover:text-white"> 
                       Elements
                       <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </NavLink>
                   </li>
-                  <div className='absolute left-0 hidden group-hover:block bg-white shadow-lg z-50 rounded-md w-[500px] max-h-[600px] overflow-y-auto mt-1'>
+                  <div className='absolute left-0 hidden group-hover:block bg-gray-800 shadow-lg z-50 rounded-md w-[500px] max-h-[600px] overflow-y-auto mt-1'>
                     <div className='grid grid-cols-2 p-4 gap-4'>
                       {Elementapi.map((category) => (
                         <div key={category.category}>
-                          <h2 className='font-bold text-gray-800 mb-2 border-b pb-2'>{category.category}</h2>
+                          <h2 className='font-bold text-white mb-2 border-b border-gray-700 pb-2'>{category.category}</h2>
                           <ul className='space-y-1'>
                             {category.data.map((item) => (
-                              <li key={item.id} className='px-3 py-1.5 hover:bg-slate-100 rounded-md transition-colors duration-200'>
-                                <NavLink to={item.path} className='relative block w-full'>{item.name}</NavLink>
+                              <li key={item.id} className='px-3 py-1.5 hover:bg-gray-700 rounded-md'>
+                                <NavLink to={item.path} className='block text-gray-300 hover:text-white'>{item.name}</NavLink>
                               </li>
                             ))}
                           </ul>
@@ -128,26 +125,26 @@ function Navbar() {
                   </div>
                 </div>
 
-                {/* Vision and Portfolio Links */}
-                <li className='hover:bg-slate-100 px-3 py-2 rounded-md'>
-                  <NavLink to="/Blog" className="block">Vision</NavLink>
+                {/* Other Links */}
+                <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                  <NavLink to="/Blog" className="block text-gray-300 hover:text-white">Vision</NavLink>
                 </li>
-                <li className='hover:bg-slate-100 px-3 py-2 rounded-md'>
-                  <NavLink to="/portfolio" className="block">Portfolio</NavLink>
+                <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                  <NavLink to="/portfolio" className="block text-gray-300 hover:text-white">Portfolio</NavLink>
                 </li>
 
-                {/* Authentication Links */}
+                {/* Auth Links */}
                 {isLoggedIn ? (
-                  <li className='hover:bg-slate-100 px-3 py-2 rounded-md'>
-                    <NavLink to="/logout" className="block">Logout</NavLink>
+                  <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                    <NavLink to="/logout" className="block text-gray-300 hover:text-white">Logout</NavLink>
                   </li>
                 ) : (
                   <>
-                    <li className='hover:bg-slate-100 px-3 py-2 rounded-md'>
-                      <NavLink to="/register" className="block">Register</NavLink>
+                    <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                      <NavLink to="/register" className="block text-gray-300 hover:text-white">Register</NavLink>
                     </li>
-                    <li className='hover:bg-slate-100 px-3 py-2 rounded-md'>
-                      <NavLink to="/login" className="block">Login</NavLink>
+                    <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                      <NavLink to="/login" className="block text-gray-300 hover:text-white">Login</NavLink>
                     </li>
                   </>
                 )}
@@ -155,24 +152,24 @@ function Navbar() {
             </nav>
           </div>
 
-          {/* Mobile Navigation - Updated */}
+          {/* Mobile Navigation */}
           <div 
-            className={`lg:hidden fixed inset-0 bg-gray-800/50 z-50 transition-opacity duration-300 ${
+            className={`lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity duration-300 ${
               isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
             onClick={() => setIsMenuOpen(false)}
           >
             <div 
-              className={`fixed right-0 top-0 h-full w-[80%] max-w-sm bg-white transform transition-transform duration-300 overflow-y-auto ${
+              className={`fixed right-0 top-0 h-full w-[80%] max-w-sm bg-gray-900 transform transition-transform duration-300 overflow-y-auto ${
                 isMenuOpen ? 'translate-x-0' : 'translate-x-full'
               }`}
               onClick={e => e.stopPropagation()}
             >
-              <div className="sticky top-0 bg-white border-b px-4 py-3 flex justify-between items-center">
-                <span className="font-semibold text-gray-800">Menu</span>
+              <div className="sticky top-0 bg-gray-900 border-b px-4 py-3 flex justify-between items-center">
+                <span className="font-semibold text-gray-300">Menu</span>
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                  className="p-2 rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -184,7 +181,7 @@ function Navbar() {
                 {/* Mobile Home Link with dropdown */}
                 <div className="space-y-1">
                   <div 
-                    className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between cursor-pointer"
+                    className="px-4 py-2.5 text-base font-medium text-gray-300 flex items-center justify-between cursor-pointer"
                     onClick={() => toggleDropdown('home')}
                   >
                     Home
@@ -202,7 +199,7 @@ function Navbar() {
                       <NavLink
                         key={index}
                         to={item.link}
-                        className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
+                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 pl-8"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
@@ -214,7 +211,7 @@ function Navbar() {
                 {/* Mobile Pages Link with dropdown */}
                 <div className="space-y-1 mt-4">
                   <div 
-                    className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between cursor-pointer"
+                    className="px-4 py-2.5 text-base font-medium text-gray-300 flex items-center justify-between cursor-pointer"
                     onClick={() => toggleDropdown('pages')}
                   >
                     Pages
@@ -232,7 +229,7 @@ function Navbar() {
                       <NavLink
                         key={index}
                         to={item.path}
-                        className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
+                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 pl-8"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
@@ -244,7 +241,7 @@ function Navbar() {
                 {/* Mobile Elements Link with dropdown */}
                 <div className="space-y-1 mt-4">
                   <div 
-                    className="px-4 py-2.5 text-base font-medium text-gray-700 flex items-center justify-between cursor-pointer"
+                    className="px-4 py-2.5 text-base font-medium text-gray-300 flex items-center justify-between cursor-pointer"
                     onClick={() => toggleDropdown('elements')}
                   >
                     Elements
@@ -260,12 +257,12 @@ function Navbar() {
                   <div className={`${activeDropdown === 'elements' ? 'block' : 'hidden'}`}>
                     {Elementapi.map((category) => (
                       <div key={category.category} className="ml-4 space-y-1">
-                        <div className="px-3 py-2 text-sm font-medium text-gray-900">{category.category}</div>
+                        <div className="px-3 py-2 text-sm font-medium text-gray-300">{category.category}</div>
                         {category.data.map((item) => (
                           <NavLink
                             key={item.id}
                             to={item.path}
-                            className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 pl-8"
+                            className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 pl-8"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {item.name}
@@ -277,24 +274,24 @@ function Navbar() {
                 </div>
 
                 {/* Mobile Vision and Portfolio Links */}
-                <NavLink to="/Blog" className="block px-4 py-2.5 mt-4 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+                <NavLink to="/Blog" className="block px-4 py-2.5 mt-4 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
                   Vision
                 </NavLink>
-                <NavLink to="/portfolio" className="block px-4 py-2.5 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+                <NavLink to="/portfolio" className="block px-4 py-2.5 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
                   Portfolio
                 </NavLink>
 
                 {/* Mobile Authentication Links */}
                 {isLoggedIn ? (
-                  <NavLink to="/logout" className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                  <NavLink to="/logout" className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
                     Logout
                   </NavLink>
                 ) : (
                   <>
-                    <NavLink to="/register" className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                    <NavLink to="/register" className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
                       Register
                     </NavLink>
-                    <NavLink to="/login" className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                    <NavLink to="/login" className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
                       Login
                     </NavLink>
                   </>
@@ -304,7 +301,6 @@ function Navbar() {
           </div>
         </div>
       </header>
-      {/* Add a spacer div to prevent content from being hidden */}
       <div className="h-16 sm:h-20"></div>
     </>
   );
