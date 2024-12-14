@@ -56,7 +56,7 @@ const Introduction = () => {
   return (
     <div className="circle-container px-4 sm:px-6 lg:px-8">
       {/* Introduction Section */}
-      <div className="flex flex-col md:flex-row items-center mb-12">
+      <div className="flex gap-6 flex-col md:flex-row items-center mb-12">
       <div className="flex-1 mt-6 md:mt-0">
           <img
             className="circle-image w-full h-auto max-w-sm mx-auto md:max-w-none md:mx-0"
