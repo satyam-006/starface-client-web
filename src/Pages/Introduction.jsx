@@ -59,13 +59,16 @@ const Introduction = () => {
       <div className="flex flex-col md:flex-row items-center mb-12">
         <div className="flex-1 circle-item text-center md:text-left">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-            Introduction
+          Welcome to Starface India Talent
           </h1>
           <hr className="w-16 sm:w-24 border-2 border-rose-600 mx-auto md:mx-0 mb-6" />
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-lg">
-            Welcome to Starface India Talent, the pinnacle of creative expression and artistic innovation. As a premier
-            modeling and entertainment agency, we pride ourselves on fostering a nurturing environment where exceptional
-            talent is cultivated, refined, and propelled to stardom.
+            "Starface India Talent, the pinnacle of creative expression and artistic innovation. As a premier modelling and entertainment agency, we pride ourselves on fostering a nurturing environment where exceptional talent is cultivated, refined, and propelled to stardom.
+            Our mission is to bridge the gap between emerging artists and leading industry players, delivering personalized support, expert guidance, and unparalleled opportunities. We strive to empower our talent with the skills, confidence, and networks necessary to succeed in the dynamic world of entertainment.
+            At Starface India Talent, we celebrate artistic excellence, diversity, and individuality. Our holistic platform encompasses modelling, acting, and all facets of the entertainment industry, providing a launchpad for aspiring models, actors, and industry professionals to realize their dreams.
+            Join us as we redefine success, push creative boundaries, and shape the future of entertainment. Whether you're seeking representation, guidance, or a platform to showcase your talent, Starface India Talent is your gateway to unlocking your full potential.
+            Explore our services, submit your portfolio, or schedule a consultation today and discover how Starface India Talent can help you shine."
+
           </p>
         </div>
         <div className="flex-1 mt-6 md:mt-0">
@@ -73,60 +76,6 @@ const Introduction = () => {
             className="circle-image w-full h-auto max-w-sm mx-auto md:max-w-none md:mx-0"
             src="https://th.bing.com/th?id=OIP.fDK1SlDdGSUcffwouRR9XAHaFZ&w=292&h=213&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
             alt="Starface India Talent introduction"
-          />
-        </div>
-      </div>
-
-      {/* Overview Section */}
-      <div className="flex flex-col md:flex-row items-center mb-12">
-        <div className="flex-1 circle-item text-center md:text-left">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Overview</h1>
-          <hr className="w-16 sm:w-24 border-2 border-rose-600 mx-auto md:mx-0 mb-6" />
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-lg">
-            Welcome to Starface India Talent, a premier entertainment and talent management agency dedicated to fostering creative excellence and artistic innovation.
-          </p>
-        </div>
-        <div className="flex-1 mt-6 md:mt-0">
-          <img
-            className="circle-image w-full h-auto max-w-sm mx-auto md:max-w-none md:mx-0"
-            src="https://th.bing.com/th?id=OIP.eX2L4glMWE5wXdwBCXoJ4gAAAA&w=313&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
-            alt="Agency overview"
-          />
-        </div>
-      </div>
-
-      {/* Mission Section */}
-      <div className="flex flex-col md:flex-row items-center mb-12">
-        <div className="flex-1 circle-item text-center md:text-left">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Our Mission</h1>
-          <hr className="w-16 sm:w-24 border-2 border-rose-600 mx-auto md:mx-0 mb-6" />
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-lg">
-            To discover, nurture, and promote exceptional talent in the entertainment industry, providing a holistic platform for artists to showcase their skills and achieve success.
-          </p>
-        </div>
-        <div className="flex-1 mt-6 md:mt-0">
-          <img
-            className="circle-image w-full h-auto max-w-sm mx-auto md:max-w-none md:mx-0"
-            src="https://th.bing.com/th?id=OIP.JaMhHcbJ861j7JGlhAEeWwHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
-            alt="Our mission at Starface India Talent"
-          />
-        </div>
-      </div>
-
-      {/* Vision Section */}
-      <div className="flex flex-col md:flex-row items-center">
-        <div className="flex-1 circle-item text-center md:text-left">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Vision</h1>
-          <hr className="w-16 sm:w-24 border-2 border-rose-600 mx-auto md:mx-0 mb-6" />
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-lg">
-            To become India's leading talent agency, renowned for launching careers, producing exceptional content, and pushing the boundaries of artistic expression.
-          </p>
-        </div>
-        <div className="flex-1 mt-6 md:mt-0">
-          <img
-            className="circle-image w-full h-auto max-w-sm mx-auto md:max-w-none md:mx-0"
-            src="https://th.bing.com/th?id=OIP.hwETvQ43zgDcL6CmvHVluwHaEh&w=319&h=195&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
-            alt="Our vision for success"
           />
         </div>
       </div>

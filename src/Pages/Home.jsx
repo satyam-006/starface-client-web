@@ -5,6 +5,7 @@ import Apps from './Home-hero'
 import Introduction from './Introduction'
 import Entertainment from './Entertainment'
 import Services from './Services'
+import Masterpiece from './Masterpiece'
 
 
 
@@ -15,6 +16,7 @@ function Home() {
     <Suspense fallback={'Loading...'}>
        <Apps />
        <Introduction />
+       <Masterpiece />
        <Services />
        {/* <LayoutCollection /> */}
        {/* <Predesigned /> */}

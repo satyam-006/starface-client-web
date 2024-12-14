@@ -126,12 +126,15 @@ function Navbar() {
                 </div>
 
                 {/* Other Links */}
-                <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                {/* <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
                   <NavLink to="/Blog" className="block text-gray-300 hover:text-white">Vision</NavLink>
-                </li>
+                </li> */}
                 <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
                   <NavLink to="/portfolio" className="block text-gray-300 hover:text-white">Portfolio</NavLink>
                 </li>
+                <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                      <NavLink to="/login" className="block text-gray-300 hover:text-white">Login</NavLink>
+                    </li>
 
                 {/* Auth Links */}
                 {isLoggedIn ? (
@@ -143,9 +146,7 @@ function Navbar() {
                     <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
                       <NavLink to="/register" className="block text-gray-300 hover:text-white">Register</NavLink>
                     </li>
-                    <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
-                      <NavLink to="/login" className="block text-gray-300 hover:text-white">Login</NavLink>
-                    </li>
+                    
                   </>
                 )}
               </ul>
