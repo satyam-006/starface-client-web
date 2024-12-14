@@ -57,6 +57,13 @@ const Introduction = () => {
     <div className="circle-container px-4 sm:px-6 lg:px-8">
       {/* Introduction Section */}
       <div className="flex flex-col md:flex-row items-center mb-12">
+      <div className="flex-1 mt-6 md:mt-0">
+          <img
+            className="circle-image w-full h-auto max-w-sm mx-auto md:max-w-none md:mx-0"
+            src="https://th.bing.com/th?id=OIP.fDK1SlDdGSUcffwouRR9XAHaFZ&w=292&h=213&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
+            alt="Starface India Talent introduction"
+          />
+        </div>
         <div className="flex-1 circle-item text-center md:text-left">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
           Welcome to Starface India Talent
@@ -71,13 +78,7 @@ const Introduction = () => {
 
           </p>
         </div>
-        <div className="flex-1 mt-6 md:mt-0">
-          <img
-            className="circle-image w-full h-auto max-w-sm mx-auto md:max-w-none md:mx-0"
-            src="https://th.bing.com/th?id=OIP.fDK1SlDdGSUcffwouRR9XAHaFZ&w=292&h=213&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
-            alt="Starface India Talent introduction"
-          />
-        </div>
+       
       </div>
     </div>
   );
