@@ -16,7 +16,7 @@ function Home() {
        <Apps />
        <Introduction />
        <Services />
-       <LayoutCollection />
+       {/* <LayoutCollection /> */}
        <Predesigned />
     </Suspense>
     </>
