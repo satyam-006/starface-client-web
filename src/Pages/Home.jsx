@@ -17,7 +17,7 @@ function Home() {
        <Introduction />
        <Services />
        {/* <LayoutCollection /> */}
-       <Predesigned />
+       {/* <Predesigned /> */}
     </Suspense>
     </>
   )
