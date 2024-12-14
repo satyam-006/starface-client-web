@@ -55,6 +55,8 @@ import ShopPages from './Pages/Page/ShopPages';
 import Showcase from './Pages/Page/Showcase';
 import SponsorDataPortfolio from './Pages/Page/SponsorDataPortfolio';
 import Team from './Pages/Page/Team';
+import Entertainment from './Pages/Entertainment';
+import Services from './Pages/Services';
 
 
 
@@ -124,6 +126,9 @@ const App = () => {
           <Route path="users/:id/edit" element={<AdminUpdate/>}/>
 
        </Route>
+
+       <Route path="/" element={<Services />} />
+       <Route path="/service/:id" element={<Entertainment />} />
 
     </Routes>
     </BrowserRouter>
