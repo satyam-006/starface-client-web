@@ -10,6 +10,7 @@ useEffect(()=>{
 },[LogoutUser]);
 
 
-  return <Navigate to="/login" />;
+  // return <Navigate to="/login" />;
+  return <a href="/login" />;
 };
 export default Logout
