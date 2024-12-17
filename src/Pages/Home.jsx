@@ -6,6 +6,7 @@ import Introduction from './Introduction'
 import Entertainment from './Entertainment'
 import Services from './Services'
 import Masterpiece from './Masterpiece'
+import Team from './Team'
 
 
 
@@ -18,6 +19,7 @@ function Home() {
        <Introduction />
        <Masterpiece />
        <Services />
+       <Team />
        {/* <LayoutCollection /> */}
        {/* <Predesigned /> */}
     </Suspense>

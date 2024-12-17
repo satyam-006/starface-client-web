@@ -143,7 +143,7 @@ function Navbar() {
                   </li>
                 ) : (
                   <>
-                    <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
+                    <li className='mr-10 hover:bg-gray-800 px-3 py-2 rounded-md'>
                       <NavLink to="/register" className="block text-gray-300 hover:text-white">Register</NavLink>
                     </li>
                     
