@@ -48,7 +48,7 @@ function Services() {
 
   return (
     <>
-      <h1 className="text-3xl flex justify-center font-bold underline h-14 bg-gradient-to-r from-cyan-500 to-blue-500 sticky top-20 bg-white z-10">
+      <h1 className="text-4xl flex justify-center font-bold sticky top-20 bg-white z-10 sm:sticky p-2 border-2 border-red-400 top-16 bg-white z-10">
         Services We Offer
       </h1>
 
@@ -58,9 +58,9 @@ function Services() {
         </div>
 
         {Object.keys(groupedServices).map((category, index) => (
-          <div key={index} className="category-section my-6">
-            <h2 className="text-2xl font-semibold mb-4 capitalize text-center lg:text-left">{category}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div key={index} className="category-section my-6 ">
+            <h2 className="text-2xl font-semibold mb-4 capitalize text-center lg:text-left ">{category}</h2>
+            <div className="grid border-2 border-red-400 flex sm:grid-cols-6 grid-flow-col overflow-auto lg:grid-cols-6 gap-6">
               {groupedServices[category].map((curElem, idx) => {
                 const { name, description } = curElem;
                
@@ -90,7 +90,7 @@ function Services() {
             {/* Learn More Button */}
             <div className="relative"> {/* Make this div relative to position the absolute child */}
               <div
-                className="absolute top-[-18vh] right-[-2vw] h-[10vw] w-[10vw] rounded-full border-2 border-gray-300 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2" // Centering using transform
+                className="absolute top-[-18vh] right-[-2vw] h-[10vw] w-[10vw] rounded-full border-2 border-gray-300 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 sm:absolute top-[-14vh] h-[18vw] w-[18vw] md:absolute top-[-18vh] right-[-2vw] h-[10vw] w-[10vw]" // Centering using transform
               >
                 <Link
                   to={`/services/${category}`}

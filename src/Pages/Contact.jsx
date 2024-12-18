@@ -78,41 +78,40 @@ if(userData &&  user){
 
   return (
     <>
-    <div>
-    <form onSubmit={handleContactSubmit}>
-      <div>
-        <label htmlFor="username">username</label>
-        <input type="text"
-        name='username'
-        placeholder='username'
-        id='username'
-        required
-        autoComplete='false'
-        value={userContact.username}
-        onChange={handleInput}
-        />
-        <label htmlFor="email">email</label>
-        <input 
-        type="email"
-        name='email'
-        placeholder='email'
-        id='email'
-        required
-        autoComplete='false'
-        value={userContact.email}
-        onChange={handleInput}
-        />
-
-      
-      </div>
-<div>
-<label htmlFor="message">message</label><br />
-  <textarea name="message" id="message" cols={30} rows={10} required onChange={handleInput} value={userContact.message} autoComplete='false' placeholder='Write your message here!'></textarea>
-</div>
-
-      <br />
-      <button type='submit'> Send Message </button>
-    </form>
+    <div className="max-w-md mx-auto p-4">
+      <form onSubmit={handleContactSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="mb-4">
+          <label htmlFor="username" className="block text-gray-700 text-sm font-bold mb-2">Username</label>
+          <input type="text"
+            name='username'
+            placeholder='Username'
+            id='username'
+            required
+            autoComplete='false'
+            value={userContact.username}
+            onChange={handleInput}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+          <input 
+            type="email"
+            name='email'
+            placeholder='Email'
+            id='email'
+            required
+            autoComplete='false'
+            value={userContact.email}
+            onChange={handleInput}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">Message</label>
+          <textarea name="message" id="message" cols={30} rows={10} required onChange={handleInput} value={userContact.message} autoComplete='false' placeholder='Write your message here!' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+        <br />
+        <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send Message</button>
+      </form>
     </div>
     </>
   )

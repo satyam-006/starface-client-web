@@ -7,6 +7,8 @@ import Entertainment from './Entertainment'
 import Services from './Services'
 import Masterpiece from './Masterpiece'
 import Team from './Team'
+import Footer from './Footer'
+import Whyus from './Whyus'
 
 
 
@@ -20,6 +22,8 @@ function Home() {
        <Masterpiece />
        <Services />
        <Team />
+       <Whyus />
+       <Footer />
        {/* <LayoutCollection /> */}
        {/* <Predesigned /> */}
     </Suspense>

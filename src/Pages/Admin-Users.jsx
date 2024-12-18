@@ -58,34 +58,34 @@ export const AdminUsers = () => {
 
     return (
         <>
-          <section className="admin-users-section">
-            <div className="container">
-              <h1>Admin Users Data </h1>
+          <section className="admin-users-section py-8 bg-gray-100">
+            <div className="container mx-auto">
+              <h1 className="text-2xl font-semibold text-center mb-6">Admin Users Data</h1>
             </div>
-            <div className="container  admin-users">
-              <table>
-                <thead>
+            <div className="container mx-auto admin-users">
+              <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                <thead className="bg-gray-800 text-white">
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <th className="py-3 px-4 text-left">Name</th>
+                    <th className="py-3 px-4 text-left">Email</th>
+                    <th className="py-3 px-4 text-left">Phone</th>
+                    <th className="py-3 px-4 text-left">Update</th>
+                    <th className="py-3 px-4 text-left">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
                   {users.map((curUser, index) => {
                     return (
-                      <tr key={index} >
-                        <td className="text-3x font-bold p-4">{curUser.username}</td>
-                        <td>{curUser.email}</td>
-                        <td>{curUser.phone}</td>
-                        <td>
-                          <Link to={`/admin/users/${curUser._id}/edit`}>Edit</Link>
+                      <tr key={index} className="border-b hover:bg-gray-100">
+                        <td className="text-lg font-bold p-4">{curUser.username}</td>
+                        <td className="p-4">{curUser.email}</td>
+                        <td className="p-4">{curUser.phone}</td>
+                        <td className="p-4">
+                          <Link to={`/admin/users/${curUser._id}/edit`} className="text-blue-500 hover:underline">Edit</Link>
                         </td>
-                        <td>
+                        <td className="p-4">
                           <button
-                            className="btn"
+                            className="btn bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
                             onClick={() => deleteUser(curUser._id)}
                           >
                             Delete

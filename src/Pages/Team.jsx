@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import gsap from 'gsap';
 
 const Team = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const urlEndpoint = "https://ik.imagekit.io/nx2mu5rdoc";
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Team = () => {
 
   return (
     <>
-      <h1 className="border-2 border-red-400 text-center text-lg font-bold my-4 sticky top-20 bg-white z-10">
+      <h1 className="border-2 border-red-400 text-center text-lg font-bold my-4 sticky top-20 bg-white z-10 sm:sticky top-16 text-4xl p-2 bg-white z-10">
         Our Team
       </h1>
 

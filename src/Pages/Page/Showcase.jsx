@@ -21,7 +21,7 @@ const Showcase = () => {
     hip:"",
     eyes:"",
     hair:"",
-    // image: null,
+    model: "",
     // image2: null,
 
 });
@@ -44,6 +44,7 @@ if(modelData &&  user){
     hip:"",
     eyes:"",
     hair:"",
+    model: "",
   });
   setmodelData(false);
 };
@@ -124,7 +125,7 @@ if(modelData &&  user){
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Model Application</h2>
-        <form onSubmit={handleModelSubmit} className="space-y-6">
+        <form onSubmit={handleModelSubmit} className="space-y-6" action='/upload' enctype='multipart/form-data'>
           {/* Username field */}
           <div className="space-y-1">
             <label htmlFor="username" className="block text-sm font-medium text-gray-700">
@@ -378,6 +379,24 @@ if(modelData &&  user){
                 className={inputClass}
               />
             </div>
+
+            <div className="space-y-1">
+              <label htmlFor="imgg" className="block text-sm font-medium text-gray-700">
+                img Upload
+              </label>
+              <input
+                type="file"
+                name="imgg"
+                placeholder="upload image"
+                id="imgg"
+                required
+                autoComplete="off"
+                value={modelUser.model}
+                onChange={handleInput}
+                className={inputClass}
+              />
+            </div>
+
           </div>
 
           {/* Submit button */}
