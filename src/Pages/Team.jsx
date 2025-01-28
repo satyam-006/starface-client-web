@@ -60,7 +60,7 @@ const Team = () => {
 
   return (
     <div className={`team-container transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      <h1 className="border-2 border-red-400 text-center text-lg font-bold my-4 sticky top-20 bg-white z-10 sm:sticky top-16 text-4xl p-2 bg-white z-10">
+      <h1 className="text-center text-lg font-bold my-4 sticky top-20 bg-white z-10 sm:sticky top-16 text-4xl p-2 bg-white z-10 md:top-20 lg:top-26 text-sm md:text-2xl lg:text-3xl font-black bg-[#EEEEEE]">
         Our Team
       </h1>
 

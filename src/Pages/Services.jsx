@@ -17,8 +17,7 @@ function Services() {
     const sections = document.querySelectorAll('.category-section');
 
     sections.forEach((section) => {
-      gsap.fromTo(
-        section,
+      gsap.fromTo(section,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
@@ -34,13 +33,30 @@ function Services() {
         }
       );
     });
+    gsap.fromTo(".contain2",
+      {
+        y:0,
+      },
+      {
+        y:-60,
+        scrollTrigger: {
+          trigger: ".contain2",
+          start: '3000% 28%', // Start when the image is 60% from the top of the viewport
+          end: '3010% 28%',   // End when the top of the image reaches 20% from the top
+          scrub: true,
+          // pin :true,
+          markers: false,
+        },
+        
+      }
+    );
   }, []);
 
   // Group services by category
   const groupedServices = servicess.reduce((acc, cur) => {
     const { category } = cur;
     if (!acc[category]) {
-      acc[category] = [];
+      acc[category] = [];  
     }
     acc[category].push(cur);
     return acc;
@@ -48,7 +64,7 @@ function Services() {
 
   return (
     <>
-      <h1 className="text-4xl flex justify-center font-bold sticky top-20 bg-white z-10 sm:sticky p-2 border-2 border-red-400 top-16 bg-white z-10">
+      <h1 className="mt-4 p-2 text-4xl flex justify-center font-bold sticky top-20 bg-[#EEEEEE] z-10 sm:top-16 md:top-20 lg:top-26 text-sm md:text-2xl lg:text-3xl font-black bg-[#EEEEEE] contain2">
         Services We Offer
       </h1>
 
@@ -60,13 +76,13 @@ function Services() {
         {Object.keys(groupedServices).map((category, index) => (
           <div key={index} className="category-section my-6 ">
             <h2 className="text-2xl font-semibold mb-4 capitalize text-center lg:text-left ">{category}</h2>
-            <div className="grid border-2 border-red-400 flex sm:grid-cols-6 grid-flow-col overflow-auto lg:grid-cols-6 gap-6">
+            <div className="grid flex sm:grid-cols-6 grid-flow-col overflow-auto lg:grid-cols-6 gap-6">
               {groupedServices[category].map((curElem, idx) => {
                 const { name, description } = curElem;
                
                 return (
                   <div
-                    className={`border-solid border-2 border-indigo-600 p-4 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out ${
+                    className={`p-4 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out ${
                       category === 'STARFACE EDUCATIONAL TALENT'
                         ? 'bg-blue-100'
                         : category === 'STARFACE INDIA TALENT'
@@ -90,7 +106,7 @@ function Services() {
             {/* Learn More Button */}
             <div className="relative"> {/* Make this div relative to position the absolute child */}
               <div
-                className="absolute top-[-18vh] right-[-2vw] h-[10vw] w-[10vw] rounded-full border-2 border-gray-300 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 sm:absolute top-[-14vh] h-[18vw] w-[18vw] md:absolute top-[-18vh] right-[-2vw] h-[10vw] w-[10vw]" // Centering using transform
+                className="border-4 border-blue-800 absolute top-[-18vh] right-[-2vw] h-[10vw] w-[10vw] rounded-full border-2 border-gray-300 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 sm:absolute top-[-14vh] h-[18vw] w-[18vw] md:absolute top-[-20vh] right-[-1vw] h-[8vw] w-[8vw] border-yellow-400" // Centering using transform
               >
                 <Link
                   to={`/services/${category}`}

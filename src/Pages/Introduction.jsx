@@ -25,7 +25,7 @@ const Introduction = () => {
             end: 'bottom 90%',
             scrub: true,
             toggleActions: 'play none none reverse',
-            markers: true, // Debugging; enable if needed
+            markers: false, // Debugging; enable if needed
           },
         }
       );
@@ -47,7 +47,7 @@ const Introduction = () => {
             end: 'bottom 90%',
             scrub: true,
             toggleActions: 'play none none reverse',
-            markers: true, // Debugging; enable if needed
+            markers: false, // Debugging; enable if needed
           },
         }
       );
@@ -72,10 +72,10 @@ const Introduction = () => {
           />
         </div>
         <div className="circle-item col-span-1 md:col-span-2 text-center md:text-left">
-          <h1 className="text-xl mb-4 sm:text-2xl sticky top-16 p-2 bg-white">
+          <h1 className="text-xl mb-4 sm:text-2xl sticky top-16 p-2 bg-[#EEEEEE] sm:top-16 md:top-20 pt-4 lg:top-26 text-sm md:text-2xl lg:text-3xl font-black bg-[#EEEEEE]">
             Welcome to Starface India Talent
           </h1>
-          <hr className="w-16 sm:w-24 border-2 border-rose-600 mx-auto md:mx-0 mb-6" />
+          <hr className="w-16 sm:w-24 mx-auto md:mx-0 mb-6" />
           <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
             "Starface India Talent, the pinnacle of creative expression and artistic innovation. As a premier modelling and entertainment agency, we pride ourselves on fostering a nurturing environment where exceptional talent is cultivated, refined, and propelled to stardom.
             Our mission is to bridge the gap between emerging artists and leading industry players, delivering personalized support, expert guidance, and unparalleled opportunities. We strive to empower our talent with the skills, confidence, and networks necessary to succeed in the dynamic world of entertainment.
