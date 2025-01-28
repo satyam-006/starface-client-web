@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Previous from "../assets/Api/Previous";
 import { IKImage } from 'imagekitio-react';
 import gsap from 'gsap';
 
 const Masterpiece = () => {
   const urlEndpoint = "https://ik.imagekit.io/nx2mu5rdoc";
+  const gridRef = useRef(null);
 
   useEffect(() => {
     // Infinite loop GSAP animation for the grid items
@@ -26,9 +27,21 @@ const Masterpiece = () => {
       }
     );
 
+    // GSAP animation for scrolling effect
+    // gsap.to(gridRef.current, {
+    //   x: '-100%', // Move to the left
+    //   duration: 3,
+    //   ease: 'linear',
+    //   repeat: -1, // Infinite loop
+    //   modifiers: {
+    //     x: gsap.utils.unitize((x) => parseFloat(x) + 0.24) // Adjust for the offset
+    //   }
+    // });
+
     // Cleanup function to kill the animation on component unmount
     return () => {
       gsap.killTweensOf(gridItems);
+      gsap.killTweensOf(gridRef.current);
     };
   }, []);
 
@@ -38,14 +51,14 @@ const Masterpiece = () => {
         STARFACE INDIA TALENT PREVIOUS ACHIEVEMENT
       </h1>
 
-      <div className="grid grid-flow-col auto-cols-max overflow-x-auto gap-4 sm:gap-2 lg:gap-8">
+      <div ref={gridRef} className="grid grid-flow-col auto-cols-max overflow-hidden gap-4 sm:gap-2 lg:gap-8">
         {Previous.map((curElem, index) => {
           const { image, alt } = curElem;
 
           return (
             <div
               key={index}
-              className="group cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white relative transition-transform duration-300 group-hover:scale-105"
+              className="grid-item group cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white relative transition-transform duration-300 group-hover:scale-105"
               style={{ minWidth: '200px', maxWidth: '400px' }} // Set min and max width for items
             >
               <IKImage

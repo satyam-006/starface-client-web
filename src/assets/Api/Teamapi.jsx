@@ -2,8 +2,8 @@
 const Teamapi = [
     {
 id:1,
-name:"Saurabh Rai",
-image: "Saurabh.jpg",
+name:"Anshika",
+image: "model.jpg",
 alt:"valueofalt",
 insta:"./MainHome/Modelling_Agency",
 facebook:"Modelling Agency",

@@ -9,6 +9,7 @@ import gsap from 'gsap';
 const Team = () => {
   // const navigate = useNavigate();
   const urlEndpoint = "https://ik.imagekit.io/nx2mu5rdoc";
+  const [isVisible, setIsVisible] = React.useState(true);
 
   useEffect(() => {
     // Infinite loop GSAP animation for the grid items
@@ -36,8 +37,29 @@ const Team = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Intersection Observer to detect visibility
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting); // Update visibility state
+      },
+      { threshold: 0.1 } // Trigger when 10% of the component is visible
+    );
+
+    const teamElement = document.querySelector('.team-container'); // Select the container
+    if (teamElement) {
+      observer.observe(teamElement); // Start observing
+    }
+
+    return () => {
+      if (teamElement) {
+        observer.unobserve(teamElement); // Cleanup observer
+      }
+    };
+  }, []);
+
   return (
-    <>
+    <div className={`team-container transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="border-2 border-red-400 text-center text-lg font-bold my-4 sticky top-20 bg-white z-10 sm:sticky top-16 text-4xl p-2 bg-white z-10">
         Our Team
       </h1>
@@ -88,7 +110,7 @@ const Team = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

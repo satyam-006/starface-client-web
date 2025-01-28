@@ -88,7 +88,7 @@ const App = () => {
       <Route path='/MainHome/Makeup_Hair_Vendors' element={<VendorsMakeupHair />}/>
       <Route path='/MainHome/Shoot_Team' element={<ShootTeam />}/>
       <Route path='/MainHome/FashionDesiner' element={<FashionDesiner />}/>
-       <Route path='/MainHome/JwelleryShop' element={<JwelleryShop />}/>
+      <Route path='/MainHome/JwelleryShop' element={<JwelleryShop />}/>
       <Route path='/MainHome/Portfolios' element={<Portfolios />}/>
       <Route path='/Infographics/Countdown' element={<Countdown />}/> 
       <Route path='/Infographics/Countex' element={<Countex/>}/>
@@ -124,7 +124,6 @@ const App = () => {
           <Route path="users" element={<AdminUsers />}/>
           <Route path="contacts" element={<AdminContacts />}/>
           <Route path="users/:id/edit" element={<AdminUpdate/>}/>
-
        </Route>
 
        <Route path="/" element={<Services />} />

@@ -97,34 +97,6 @@ function Navbar() {
                   </div>
                 </div>
 
-                {/* Elements Dropdown */}
-                <div className='relative group mx-2'>
-                  <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
-                    <NavLink to="/" className="flex items-center gap-1 text-gray-300 hover:text-white"> 
-                      Elements
-                      <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </NavLink>
-                  </li>
-                  <div className='absolute left-0 hidden group-hover:block bg-gray-800 shadow-lg z-50 rounded-md w-[500px] max-h-[600px] overflow-y-auto mt-1'>
-                    <div className='grid grid-cols-2 p-4 gap-4'>
-                      {Elementapi.map((category) => (
-                        <div key={category.category}>
-                          <h2 className='font-bold text-white mb-2 border-b border-gray-700 pb-2'>{category.category}</h2>
-                          <ul className='space-y-1'>
-                            {category.data.map((item) => (
-                              <li key={item.id} className='px-3 py-1.5 hover:bg-gray-700 rounded-md'>
-                                <NavLink to={item.path} className='block text-gray-300 hover:text-white'>{item.name}</NavLink>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
                 {/* Other Links */}
                 {/* <li className='hover:bg-gray-800 px-3 py-2 rounded-md'>
                   <NavLink to="/Blog" className="block text-gray-300 hover:text-white">Vision</NavLink>

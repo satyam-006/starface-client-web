@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import { useAuth } from '../../Store/auth';
 
 
@@ -9,6 +9,7 @@ const URL = "http://localhost:5000/api/model/becomemodel";
 
 const Showcase = () => {
   const [modelUser, setmodelUser] = useState({
+    username:"",
     fullname:"",
     gender:"",
     phone:"",
@@ -29,41 +30,43 @@ const [modelData, setmodelData] = useState(true);
 
 const {user} = useAuth();
 
-if(modelData &&  user){
-  setmodelUser({
-    username:user.username,
-    email: user.email,
-    fullname:"",
-    phone:"",
-    age:"",
-    gender:"",
-    location:"",
-    height:"",
-    bust:"",
-    waist:"",
-    hip:"",
-    eyes:"",
-    hair:"",
-    model: "",
-  });
-  setmodelData(false);
-};
+
+useEffect(() => {
+  if (modelData && user) {
+    setmodelUser({
+      username: user.username || "",
+      email: user.email || "",
+      fullname: "",
+      phone: "",
+      age: "",
+      gender: "",
+      location: "",
+      height: "",
+      bust: "",
+      waist: "",
+      hip: "",
+      eyes: "",
+      hair: "",
+      model: "",
+    });
+    setmodelData(false);
+  }
+}, [modelData, user]);
+
 
 
 
   // handling the input
   
   const handleInput = (e) => {
-    console.log(e);
-    let name = e.target.name;
-    let value = e.target.value;
-    // setFile(URL.createObjectURL(e.target.files[0]));
-  setmodelUser({
-    ...modelUser,
-    [ name ]:value,
-  });
+    const { name, value, files } = e.target;
   
+    setmodelUser({
+      ...modelUser,
+      [name]: name === "model" ? files[0] : value, // Handle file input
+    });
   };
+  
 
   // handling form submission
 
@@ -73,13 +76,21 @@ if(modelData &&  user){
     console.log(modelUser);
 
     try{
-      const response = await fetch(URL,{method:"POST",
-         headers:{
-          "Content-Type":"application/json",
-        },
-        body:JSON.stringify(modelUser),
+      const formData = new FormData();
+        for (const key in modelUser) {
+            formData.append(key, modelUser[key]);
+        }
+      
+      const response = await fetch(URL,{
+         method:"POST",
+        //  headers:{
+        //   "Content-Type":"application/json",
+        // },
+        // body:JSON.stringify(modelUser),
+        body: formData,
        });
        if (response.ok) {
+        alert("Message submitted!");
         setmodelUser({
           fullname:"",
     phone:"",
@@ -92,10 +103,9 @@ if(modelData &&  user){
     hip:"",
     eyes:"",
     hair:"",
+    model: "",
          });
-      
-         
-          alert('message submitted');
+        alert('message submitted');
         console.log("message submitted");
       }else{
         alert('message not sent');
@@ -125,7 +135,7 @@ if(modelData &&  user){
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Model Application</h2>
-        <form onSubmit={handleModelSubmit} className="space-y-6" action='/upload' enctype='multipart/form-data'>
+        <form onSubmit={handleModelSubmit} className="space-y-6" action='/upload' encType='multipart/form-data' method="POST">
           {/* Username field */}
           <div className="space-y-1">
             <label htmlFor="username" className="block text-sm font-medium text-gray-700">
@@ -381,17 +391,17 @@ if(modelData &&  user){
             </div>
 
             <div className="space-y-1">
-              <label htmlFor="imgg" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="model" className="block text-sm font-medium text-gray-700">
                 img Upload
               </label>
               <input
                 type="file"
-                name="imgg"
+                name="model"
                 placeholder="upload image"
-                id="imgg"
+                id="model"
                 required
                 autoComplete="off"
-                value={modelUser.model}
+                // value={modelUser.model}
                 onChange={handleInput}
                 className={inputClass}
               />
