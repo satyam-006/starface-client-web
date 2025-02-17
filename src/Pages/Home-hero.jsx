@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import './Styles/styles.css';
-
-// import required modules
-import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+import "./Styles/styles.css";
 
 const Apps = () => {
-  // Define images for different screen sizes
   const images = {
     large: [
       "https://swiperjs.com/demos/images/nature-1.jpg",
@@ -29,66 +22,59 @@ const Apps = () => {
     small: [
       "https://th.bing.com/th?id=OIP.Pqp-L2hXuZU5axLp1G1ZPAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
       "https://th.bing.com/th?id=OIP.Pqp-L2hXuZU5axLp1G1ZPAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
-      "https://th.bing.com/th?id=OIP.Pqp-L2hXuZU5axLp1G1ZPAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
-      "https://th.bing.com/th?id=OIP.Pqp-L2hXuZU5axLp1G1ZPAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
     ],
   };
 
   const [currentImages, setCurrentImages] = useState(images.large);
-  const [swiperHeight, setSwiperHeight] = useState('460px'); // Default height
 
   const updateImages = () => {
     const width = window.innerWidth;
     if (width < 640) {
       setCurrentImages(images.small);
-      // setSwiperHeight('200px'); // Set height for small devices
     } else if (width < 768) {
       setCurrentImages(images.medium);
-      // setSwiperHeight('300px'); // Set height for medium devices
     } else {
       setCurrentImages(images.large);
-      // setSwiperHeight('400px'); // Set height for large devices
     }
   };
 
   useEffect(() => {
-    updateImages(); // Set initial images based on current window size
-    window.addEventListener('resize', updateImages); // Update images on resize
-
+    updateImages();
+    window.addEventListener("resize", updateImages);
     return () => {
-      window.removeEventListener('resize', updateImages); // Cleanup event listener
+      window.removeEventListener("resize", updateImages);
     };
   }, []);
 
   return (
-    <>
-      <Swiper
-        spaceBetween={30}
-        effect={'fade'}
-        navigation={true}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Autoplay, EffectFade, Navigation, Pagination]}
-        className="mySwiper"
-        style={{ height: swiperHeight }} // Set dynamic height
-      >
-        {currentImages.map((image, index) => (
-          <SwiperSlide key={index}>
-            <img 
-              src={image} alt={`Slide ${index + 1}`} 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }} // Make images responsive
+    <Swiper
+      spaceBetween={30}
+      effect={"fade"}
+      loop={true}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      modules={[Autoplay, EffectFade, Navigation, Pagination]}
+      className="mySwiper"
+    >
+      {currentImages.map((image, index) => (
+        <SwiperSlide key={index}>
+          <div className="relative w-full h-full">
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-screen object-cover"
             />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
+            {/* Centered Text Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <h1 className="text-red-600 text-[100px] font-bold">{index}</h1>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
-}
+};
 
 export default Apps;

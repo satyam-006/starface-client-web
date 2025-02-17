@@ -253,23 +253,31 @@ function Navbar() {
                 <NavLink to="/portfolio" className="block px-4 py-2.5 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
                   Portfolio
                 </NavLink>
-                <NavLink to="/login" className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
-                      Login
-                    </NavLink>
-
                 {/* Mobile Authentication Links */}
-                {isLoggedIn ? (
-                  <NavLink to="/logout" className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
-                    Logout
-                  </NavLink>
-                ) : (
-                  <>
-                    <NavLink to="/register" className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
-                      Registration
-                    </NavLink>
-                    
-                  </>
-                )}
+{isLoggedIn ? (
+  <NavLink
+    to="/logout"
+    className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md"
+  >
+    Logout
+  </NavLink>
+) : (
+  <>
+    <NavLink
+      to="/login"
+      className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md"
+    >
+      Login
+    </NavLink>
+    <NavLink
+      to="/register"
+      className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md"
+    >
+      Registration
+    </NavLink>
+  </>
+)}
+
               </div>
             </div>
           </div>
